@@ -1,0 +1,78 @@
+@import '~bootstrap/scss/bootstrap';
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 150px;
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-columns: minmax(100px, auto);
+}
+
+.zero {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.one {
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.two {
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.three {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.four {
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.five{
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.six {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.seven {
+  border-bottom: 2px solid black;
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.eight{
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  grid-column: 3;
+  grid-row: 3;
+}
