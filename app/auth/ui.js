@@ -2,6 +2,11 @@
 
 const store = require('./../store')
 
+
+const markBox = function (event) {
+	$('.box').on('click', events.clickedBox)
+}
+
 const onSignUpSuccess = (response) => {
     $('#message').text(`Thank you for signing up ${response.user.email}`)
 	console.log(response)
@@ -15,6 +20,9 @@ const onSignInSuccess = (response) => {
 	$('#message').text(`Now signed in as ${response.user.email}`)
 	console.log(response)
 	$('#sign-in').trigger('reset')
+	$('#new-game').show()
+	$('#game-board').show()
+	
 	store.user = response.user
 }
 const onSignInFailure = () => {
@@ -25,6 +33,7 @@ const onSignInFailure = () => {
 const onSignOutSuccess = (error) => {
 	$('#message').text('Signed out successfully')
 	$('form').trigger('reset')
+	
 }
 
 const onSignOutFailure = (error) => {
@@ -32,11 +41,24 @@ const onSignOutFailure = (error) => {
 	$('form').trigger('reset')
 }
 
+const onNewGameSuccess = () => {
+	$('#message').text('Play!')
+	
+}
+
+const onNewGameFailure = () => {
+	$('#message').text('error with Game Start')
+}
+
+
 module.exports = {
 	onSignUpFailure,
 	onSignUpSuccess,
 	onSignInFailure,
 	onSignInSuccess,
 	onSignOutFailure,
-	onSignOutSuccess
+	onSignOutSuccess,
+	onNewGameFailure,
+	onNewGameSuccess,
+
 }

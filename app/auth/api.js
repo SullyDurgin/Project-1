@@ -14,14 +14,17 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
+
 		return $.ajax({
 			url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-in',
 			method: 'POST',
 			data: data
 		})
+		
  }
 
  const signOut = function () {
+
 		return $.ajax({
 			url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
 			method: 'DELETE',
@@ -31,8 +34,21 @@ const signIn = function (data) {
 		})
  }
 
+ 
+ const newGame = function () {
+
+	 return $.ajax({
+		 url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+		 method: 'POST'
+
+			})
+	 }
+
+
  module.exports = {
 		signUp,
 		signIn,
-		signOut
+		signOut,
+		newGame
+
  }
