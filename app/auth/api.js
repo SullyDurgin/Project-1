@@ -6,6 +6,27 @@ const signUp = function (data) {
 		data: data
 	})
 }
-module.exports = {
-	signUp,
-}
+
+const signIn = function (data) {
+		return $.ajax({
+			url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-in',
+			method: 'POST',
+			data: data,
+		})
+ }
+
+ const signOut = function () {
+		return $.ajax({
+			url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
+			method: 'DELETE',
+			headers: {
+				Authorization: 'Bearer ' + store.user.token
+			},
+		})
+ }
+
+ module.exports = {
+		signUp,
+		signIn,
+		signOut
+ }

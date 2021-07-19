@@ -11,8 +11,37 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
-      <h1>Tic Tac Toe</h1>
+<em>
+  <h1 id="message"></h1>
+</em>
+<form id="sign-up">
+  <label for="sign-up-email">email</label>
+  <input type="email" name="credentials[email]" placeholder="Email">
+  <label>Password</label>
+  <input type="password" name="credentials[password]" placeholder="password">
+  <label>Password Confirmation</label>
+  <input type="password" name="credentials[password_confirmation]" placeholder="password">
+  <input type="submit" value="Sign Up">
+</form>
+
+<form id="sign-in">
+  <label for="sign-in-email">Email</label>
+  <input type="email" name="credentials[email]" placeholder="email">
+  <label>Password</label>
+  <input type="password" name="credentials[password]" placeholder="password">
+  <input type="submit" value="Sign In">
+</form>
+
+<form id="sign-out" class="border">
+  <fieldset>
+    <legend>Sign Out</legend>
+    <input type="submit" value="Sign Out">
+  </fieldset>
+</form>
+
+ <h1>Tic Tac Toe</h1>
 <div class="wrapper">
   <div class="zero">One</div>
   <div class="one">Two</div>
@@ -23,7 +52,6 @@
   <div class="six">Seven</div>
   <div class="seven">Eight</div>
   <div class="eight">Nine</div>
-</div>
-
+</div> 
     </body>
 </html>
