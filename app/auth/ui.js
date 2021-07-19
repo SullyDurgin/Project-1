@@ -15,6 +15,7 @@ const onSignInSuccess = (response) => {
 	$('#message').text(`Now signed in as ${response.user.email}`)
 	console.log(response)
 	$('#sign-in').trigger('reset')
+	store.user = response.user
 }
 const onSignInFailure = () => {
 	$('#message').text('Sign in failure')
