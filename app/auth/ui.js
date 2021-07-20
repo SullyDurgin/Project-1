@@ -22,7 +22,6 @@ const onSignInSuccess = (response) => {
 	$('#sign-in').trigger('reset')
 	$('#new-game').show()
 	$('#game-board').show()
-	
 	store.user = response.user
 }
 const onSignInFailure = () => {
@@ -41,14 +40,25 @@ const onSignOutFailure = (error) => {
 	$('form').trigger('reset')
 }
 
-const onNewGameSuccess = () => {
+const onNewGameSuccess = (response) => {
 	$('#message').text('Play!')
-	
+	console.log(response)
+	store.game=response.game
+	store.currentPlayer='X'
 }
 
 const onNewGameFailure = () => {
 	$('#message').text('error with Game Start')
 }
+
+const onClickedBoxSuccess = () => {
+	$(".box").on('click', )
+
+}
+	
+const onClickedBoxFailure = () => {}
+	
+
 
 
 module.exports = {
@@ -60,5 +70,7 @@ module.exports = {
 	onSignOutSuccess,
 	onNewGameFailure,
 	onNewGameSuccess,
+	onClickedBoxFailure,
+	onClickedBoxSuccess
 
 }

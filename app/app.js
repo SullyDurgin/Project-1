@@ -11,7 +11,8 @@ $(() => { //run these things immediately (jquery)
   $('#sign-up').on('submit', authEvents.onSignUp) //get the sign up element, .on (register an event handler), (what even to use 'submit' and what function to call 'authEvents.onSignUp')
   $('#sign-in').on('submit', authEvents.onSignIn)
   $('#sign-out').on('submit', authEvents.onSignOut)
-  $('#new-game').hide('submit', authEvents.onNewGame)
+  $('#new-game').hide()
+  $('#new-game').on('submit', authEvents.onNewGame)
   $('.box').on('click', authEvents.clickedBox) //when page loads find all .box and add click handler
   
 })

@@ -37,18 +37,36 @@ const signIn = function (data) {
  
  const newGame = function () {
 
-	 return $.ajax({
+	 return $.ajax({     //returns promise
 		 url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
-		 method: 'POST'
+		 method: 'POST',
+		 headers: {
+				Authorization: 'Bearer ' + store.user.token
+		}
 
-			})
-	 }
+	})
+}
+
+const updateGame = function () {
+
+	return $.ajax({
+		url:'https://tic-tac-toe-api-development.herokuapp.com/games/' +
+			store.game._id,
+		method: 'PATCH',
+		headers: {
+			Authorization: 'Bearer ' + store.user.token,
+		},
+		data: store.game
+	})
+
+}
 
 
  module.exports = {
 		signUp,
 		signIn,
 		signOut,
-		newGame
+		newGame,
+		updateGame
 
  }

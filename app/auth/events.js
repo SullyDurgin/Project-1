@@ -28,16 +28,16 @@ const onSignOut = function (event) {
   	api.signOut().then(ui.onSignOutSuccess).catch(ui.onSignOutFailure)
 }
 
-
 const onNewGame = function (event) {
+	event.preventDefault()
 	api.newGame().then(ui.onNewGameSuccess).catch(ui.onNewGameFailure)
 }
 
 const clickedBox = function (event) {
-	console.log("clicked")
-	game.markBox()
-
+	event.target
+	console.log(event.target)
 }
+
 
 
 module.exports = {
@@ -45,6 +45,7 @@ module.exports = {
 	onSignIn,
 	onSignOut,
 	onNewGame,
-	clickedBox
+	clickedBox,
+
 	
 }
