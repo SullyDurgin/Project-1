@@ -49,7 +49,7 @@ const signIn = function (data) {
 	})
 }
 
-const takeTurn = function () {
+const updateGame = function () {
 
 	return $.ajax({
 		url:
@@ -80,7 +80,7 @@ const takeTurn = function () {
 		signIn,
 		signOut,
 		newGame,
-		takeTurn
+		updateGame
 		
 	
 

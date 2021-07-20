@@ -34,7 +34,7 @@ const onNewGame = function (event) {
 	api.newGame().then(ui.onNewGameSuccess).catch(ui.onNewGameFailure)
 }
 
-const takeTurn = function (event) {
+const updateGame = function (event) {
 	const clickedBox = event.target.getAttribute('data-box')
 	store.gameIndex = event.target.getAttribute('data-box')
 
@@ -53,11 +53,11 @@ const takeTurn = function (event) {
 	}
 //console.log(gameIndex)
 
-	api.takeTurn().then(ui.onTakeTurnSuccess).catch(ui.onTakeTurnFailure)
+	api.updateGame().then(ui.onTakeTurnSuccess).catch(ui.onTakeTurnFailure)
 }
 
 const gameWin = function () {
-	let xWin =
+	let detectXWin =
 		((gameIndex = ['x', 'x', 'x', '', '', '', '', '', '']),
 		['x', '', 'x', '', '', 'x', '', '', ''], ["","","","","","","","",""])
 
@@ -77,7 +77,7 @@ module.exports = {
 	onSignIn,
 	onSignOut,
 	onNewGame,
-	takeTurn,
+	updateGame
 	
 	
 	
