@@ -8,7 +8,7 @@ const store = require('../store')
 const signUp = function (data) {
     
 	return $.ajax({
-		url: apiUrl + '/sign-up',
+		url: config.apiUrl + '/sign-up',
 		method: 'POST',
 		data: data
 	})
@@ -17,7 +17,7 @@ const signUp = function (data) {
 const signIn = function (data) {
 
 		return $.ajax({
-			url: apiUrl + '/sign-in',
+			url: config.apiUrl + '/sign-in',
 			method: 'POST',
 			data: data
 		})
@@ -27,7 +27,7 @@ const signIn = function (data) {
  const signOut = function () {
 
 		return $.ajax({
-			url: apiUrl + '/sign-out',
+			url: config.apiUrl + '/sign-out',
 			method: 'DELETE',
 			headers: {
 				Authorization: 'Bearer ' + store.user.token
@@ -39,7 +39,7 @@ const signIn = function (data) {
  const newGame = function () {
 
 	 return $.ajax({     //returns promise
-		 url: apiUrl + '/games',
+		 url: config.apiUrl + '/games',
 		 method: 'POST',
 		 headers: {
 				Authorization: 'Bearer ' + store.user.token
@@ -53,7 +53,7 @@ const updateGame = function () {
 
 	return $.ajax({
 		url:
-			apiUrl + '/games/' +
+			config.apiUrl + '/games/' +
 			store.game._id,
 		method: 'PATCH',
 		headers: {
