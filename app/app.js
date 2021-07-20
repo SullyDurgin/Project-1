@@ -13,6 +13,6 @@ $(() => { //run these things immediately (jquery)
   $('#sign-out').on('submit', authEvents.onSignOut)
   $('#new-game').hide()
   $('#new-game').on('submit', authEvents.onNewGame)
-  $('.box').on('click', authEvents.clickedBox) //when page loads find all .box and add click handler
+  $('.box').one('click', authEvents.takeTurn) //when page loads find all .box and add click handler
   
 })

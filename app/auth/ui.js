@@ -51,12 +51,15 @@ const onNewGameFailure = () => {
 	$('#message').text('error with Game Start')
 }
 
-const onClickedBoxSuccess = () => {
-	$(".box").on('click', )
-
+const onTakeTurnSuccess = () => {
+	$(".box").on('click')
+	
+	
 }
 	
-const onClickedBoxFailure = () => {}
+const onTakeTurnFailure = () => {
+	
+}
 	
 
 
@@ -70,7 +73,7 @@ module.exports = {
 	onSignOutSuccess,
 	onNewGameFailure,
 	onNewGameSuccess,
-	onClickedBoxFailure,
-	onClickedBoxSuccess
+	onTakeTurnFailure,
+	onTakeTurnSuccess
 
 }

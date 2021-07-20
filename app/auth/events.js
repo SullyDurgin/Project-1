@@ -5,6 +5,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const game = require('../game')
+const store = require('./../store')
 
 const onSignUp = function (event) {
 
@@ -33,10 +34,41 @@ const onNewGame = function (event) {
 	api.newGame().then(ui.onNewGameSuccess).catch(ui.onNewGameFailure)
 }
 
-const clickedBox = function (event) {
-	event.target
-	console.log(event.target)
+const takeTurn = function (event) {
+	const clickedBox = event.target.getAttribute('data-box')
+	store.gameIndex = event.target.getAttribute('data-box')
+
+	let gameIndex = store.game.cells[clickedBox]
+
+	if (store.game.cells[clickedBox] === '') {
+		store.game.cells[clickedBox] = store.currentPlayer
+	}
+
+	if (store.currentPlayer === 'X') {
+		store.currentPlayer = 'O'
+		$(event.target).text('X')
+	} else {
+		store.currentPlayer = 'X'
+		$(event.target).text('O')
+	}
+//console.log(gameIndex)
+
+	api.takeTurn().then(ui.onTakeTurnSuccess).catch(ui.onTakeTurnFailure)
 }
+
+const gameWin = function () {
+	let xWin =
+		((gameIndex = ['x', 'x', 'x', '', '', '', '', '', '']),
+		['x', '', 'x', '', '', 'x', '', '', ''], ["","","","","","","","",""])
+
+	if (xWin = true) {
+		console.log('x wins!')
+	}
+
+
+
+}
+
 
 
 
@@ -45,7 +77,8 @@ module.exports = {
 	onSignIn,
 	onSignOut,
 	onNewGame,
-	clickedBox,
-
+	takeTurn,
+	
+	
 	
 }

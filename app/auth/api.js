@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 
+
 const signUp = function (data) {
     
 	return $.ajax({
@@ -42,24 +43,36 @@ const signIn = function (data) {
 		 method: 'POST',
 		 headers: {
 				Authorization: 'Bearer ' + store.user.token
-		}
+		},
+		body: {}
 
 	})
 }
 
-const updateGame = function () {
+const takeTurn = function () {
 
 	return $.ajax({
-		url:'https://tic-tac-toe-api-development.herokuapp.com/games/' +
+		url:
+			'https://tic-tac-toe-api-development.herokuapp.com/games/' +
 			store.game._id,
 		method: 'PATCH',
 		headers: {
 			Authorization: 'Bearer ' + store.user.token,
 		},
-		data: store.game
+		data: {
+			"game": {
+				"cell": {
+					"index": store.game.cells,
+					"value": store.currentPlayer
+				},
+
+				"over": false,
+			},
+		},
 	})
 
 }
+
 
 
  module.exports = {
@@ -67,6 +80,8 @@ const updateGame = function () {
 		signIn,
 		signOut,
 		newGame,
-		updateGame
+		takeTurn
+		
+	
 
  }
