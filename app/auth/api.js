@@ -8,7 +8,7 @@ const store = require('../store')
 const signUp = function (data) {
     
 	return $.ajax({
-		url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-up',
+		url: apiUrl + '/sign-up',
 		method: 'POST',
 		data: data
 	})
@@ -17,7 +17,7 @@ const signUp = function (data) {
 const signIn = function (data) {
 
 		return $.ajax({
-			url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-in',
+			url: apiUrl + '/sign-in',
 			method: 'POST',
 			data: data
 		})
@@ -27,7 +27,7 @@ const signIn = function (data) {
  const signOut = function () {
 
 		return $.ajax({
-			url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
+			url: apiUrl + '/sign-out',
 			method: 'DELETE',
 			headers: {
 				Authorization: 'Bearer ' + store.user.token
@@ -39,7 +39,7 @@ const signIn = function (data) {
  const newGame = function () {
 
 	 return $.ajax({     //returns promise
-		 url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+		 url: apiUrl + '/games',
 		 method: 'POST',
 		 headers: {
 				Authorization: 'Bearer ' + store.user.token
@@ -53,7 +53,7 @@ const updateGame = function () {
 
 	return $.ajax({
 		url:
-			'https://tic-tac-toe-api-development.herokuapp.com/games/' +
+			apiUrl + '/games/' +
 			store.game._id,
 		method: 'PATCH',
 		headers: {
