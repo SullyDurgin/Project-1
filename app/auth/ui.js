@@ -43,8 +43,9 @@ const onSignOutFailure = (error) => {
 
 const onNewGameSuccess = (response) => {
 	$('#message').text('Play!')
+	$('data-box').val(null)
+	$('.box').text("")
 	console.log(response)
-	$('.box').trigger('reset')
 	store.game=response.game
 	store.currentPlayer='X'
 }

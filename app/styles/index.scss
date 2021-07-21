@@ -1,83 +1,99 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-h1 {
+h1, h2 {
   text-align: center;
 }
 
+
+body {
+  background-image: url("https://i.ibb.co/BN2bszY/52eb4c43ad266b111552d01bd87c66c9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+
 .wrapper {
+font-family: 'WebFont', Arial, sans-serif; 
+    font-weight: normal;
+    font-style: normal;
   display: grid;
+  position: relative;
+  text-align: center;
+  font-size: 80px;
+  color: red;
   grid-template-columns: repeat(3, 1fr);
-  margin: 150px;
+  margin: 15px;
   grid-auto-rows: minmax(100px, auto);
   grid-auto-columns: minmax(100px, auto);
+  //background-color: aquamarine;
 }
 
 #zero {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 1;
   grid-row: 1;
 }
 
 #one {
-  border-right: 2px solid black;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 4px solid black;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 2;
   grid-row: 1;
 }
 
 #two {
-  border-right: 2px solid black;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 4px solid black;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 3;
   grid-row: 1;
 }
 
 #three {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 1;
   grid-row: 2;
 }
 
 #four {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 2;
   grid-row: 2;
 }
 
 #five{
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 3;
   grid-row: 2;
 }
 
 #six {
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 1;
   grid-row: 3;
 }
 
 #seven {
-  border-bottom: 2px solid black;
+  border-bottom: 4px solid black;
   grid-column: 2;
   grid-row: 3;
 }
 
 #eight{
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
   grid-column: 3;
   grid-row: 3;
 }
