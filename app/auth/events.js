@@ -27,6 +27,7 @@ const onNewGame = function (event) {
 }
 
 const updateGame = function (event) {
+  console.log(store.game.over)
   const clickedBox = event.target.getAttribute('data-box')
   store.gameIndex = event.target.getAttribute('data-box')
 
@@ -83,6 +84,11 @@ const winnerOfGame = function () {
     store.game.over = true
     winner.innerText = 'Player ' + winningPlayer + ' is the winner!!'
     console.log(store.game.over)
+  }
+  const gameDraw = !store.game.cells.includes('')
+  if (gameDraw) {
+    winner.innerHTML = 'DRAW!'
+    store.game.over = false
   }
 }
 
