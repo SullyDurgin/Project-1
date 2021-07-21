@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 
-
 const signUp = function (data) {
     
 	return $.ajax({
@@ -52,21 +51,20 @@ const signIn = function (data) {
 const updateGame = function () {
 
 	return $.ajax({
-		url:
-			config.apiUrl + '/games/' +
-			store.game._id,
+		url: config.apiUrl + '/games/' + store.game._id,
+
 		method: 'PATCH',
 		headers: {
 			Authorization: 'Bearer ' + store.user.token,
 		},
 		data: {
-			"game": {
-				"cell": {
-					"index": store.game.cells,
-					"value": store.currentPlayer
+			game: {
+				cell: {
+					index: store.gameIndex,
+					value: store.currentPlayer,
 				},
 
-				"over": false,
+				over: store.game.over
 			},
 		},
 	})

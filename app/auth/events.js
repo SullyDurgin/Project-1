@@ -1,11 +1,10 @@
-'use strict'
 
 const getFormFields = require('../../lib/get-form-fields')
-
 const api = require('./api')
 const ui = require('./ui')
 const game = require('../game')
-const store = require('./../store')
+const store = require('./../store') 
+const { validate } = require('webpack')
 
 const onSignUp = function (event) {
 
@@ -15,6 +14,7 @@ const onSignUp = function (event) {
     .then(ui.onSignUpSuccess)
     .catch(ui.onSignUpFailure)
 }
+
 const onSignIn = function (event) {
 
 	event.preventDefault()
@@ -38,6 +38,7 @@ const updateGame = function (event) {
 	const clickedBox = event.target.getAttribute('data-box')
 	store.gameIndex = event.target.getAttribute('data-box')
 
+	api.updateGame().then(ui.onUpdateGameSuccess).catch(ui.onUpdateGameFailure)
 	let gameIndex = store.game.cells[clickedBox]
 
 	if (store.game.cells[clickedBox] === '') {
@@ -51,25 +52,48 @@ const updateGame = function (event) {
 		store.currentPlayer = 'X'
 		$(event.target).text('O')
 	}
-//console.log(gameIndex)
-
-	api.updateGame().then(ui.onTakeTurnSuccess).catch(ui.onTakeTurnFailure)
+	winnerOfGame()
 }
 
-const gameWin = function () {
-	let detectXWin =
-		((gameIndex = ['x', 'x', 'x', '', '', '', '', '', '']),
-		['x', '', 'x', '', '', 'x', '', '', ''], ["","","","","","","","",""])
-
-	if (xWin = true) {
-		console.log('x wins!')
-	}
+const winnerOfGame = function () {
 
 
+let winningPlayer = null;
 
+	const checkWinIndexes = [
+	[0, 1, 2], //top row
+	[3, 4, 5], //middle row
+	[6, 7, 8], //bottom row
+	[0, 3, 6], //left column
+	[1, 4, 7], //middle column
+	[2, 5, 8], //right column
+	[0, 4, 8], //first diagonal
+	[2, 4, 6], // second diagonal
+	]
+
+    checkWinIndexes.forEach(function(threeIndexes){
+
+    if (threeIndexes.every((index) => {
+        return store.game.cells[index] === 'X'
+
+    })) {
+        winningPlayer = 'X'
+    }
+
+    if (threeIndexes.every((index) => {
+        return store.game.cells[index] === 'O'
+
+    })) {
+        winningPlayer = 'O'
+    }
+})
+
+if (winningPlayer) {
+    store.game.over = true
+	winner.innerText = 'Winner is player ' + winningPlayer + " !!"
+    //console.log('Player ' + winningPlayer + ' WON!')
 }
-
-
+}
 
 
 module.exports = {
@@ -77,8 +101,6 @@ module.exports = {
 	onSignIn,
 	onSignOut,
 	onNewGame,
-	updateGame
-	
-	
-	
+	updateGame,
+	winnerOfGame,	
 }

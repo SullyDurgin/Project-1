@@ -21,7 +21,8 @@ const onSignInSuccess = (response) => {
 	console.log(response)
 	$('#sign-in').trigger('reset')
 	$('#new-game').show()
-	$('#game-board').show()
+	$('.box').show()
+	$('#sign-out').on()
 	store.user = response.user
 }
 const onSignInFailure = () => {
@@ -43,6 +44,7 @@ const onSignOutFailure = (error) => {
 const onNewGameSuccess = (response) => {
 	$('#message').text('Play!')
 	console.log(response)
+	$('.box').trigger('reset')
 	store.game=response.game
 	store.currentPlayer='X'
 }
@@ -51,9 +53,9 @@ const onNewGameFailure = () => {
 	$('#message').text('error with Game Start')
 }
 
-const onUpdateGameSuccess = () => {
-	$(".box").on('click')
-	
+const onUpdateGameSuccess = (response) => {
+	store.game = response.game
+	console.log(store.game)
 	
 }
 	
@@ -61,7 +63,6 @@ const onUpdateGameFailure = () => {
 
 }
 	
-
 
 
 module.exports = {
