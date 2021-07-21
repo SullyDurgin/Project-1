@@ -1,4 +1,3 @@
-
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
@@ -7,9 +6,7 @@ const store = require('./../store')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  api.signUp(data)
-    .then(ui.onSignUpSuccess)
-    .catch(ui.onSignUpFailure)
+  api.signUp(data).then(ui.onSignUpSuccess).catch(ui.onSignUpFailure)
 }
 
 const onSignIn = function (event) {
@@ -38,14 +35,14 @@ const updateGame = function (event) {
 
   if (store.game.cells[clickedBox] === '') {
     store.game.cells[clickedBox] = store.currentPlayer
-  }
 
-  if (store.currentPlayer === 'X') {
-    store.currentPlayer = 'O'
-    $(event.target).text('X')
-  } else {
-    store.currentPlayer = 'X'
-    $(event.target).text('O')
+    if (store.currentPlayer === 'X') {
+      store.currentPlayer = 'O'
+      $(event.target).text('X')
+    } else {
+      store.currentPlayer = 'X'
+      $(event.target).text('O')
+    }
   }
   winnerOfGame()
 }
@@ -65,15 +62,19 @@ const winnerOfGame = function () {
   ]
 
   checkWinIndexes.forEach(function (threeIndexes) {
-    if (threeIndexes.every((index) => {
-      return store.game.cells[index] === 'X'
-    })) {
+    if (
+      threeIndexes.every((index) => {
+        return store.game.cells[index] === 'X'
+      })
+    ) {
       winningPlayer = 'X'
     }
 
-    if (threeIndexes.every((index) => {
-      return store.game.cells[index] === 'O'
-    })) {
+    if (
+      threeIndexes.every((index) => {
+        return store.game.cells[index] === 'O'
+      })
+    ) {
       winningPlayer = 'O'
     }
   })
@@ -81,7 +82,7 @@ const winnerOfGame = function () {
   if (winningPlayer) {
     store.game.over = true
     winner.innerText = 'Player ' + winningPlayer + ' is the winner!!'
-    // console.log('Player ' + winningPlayer + ' WON!')
+    console.log(store.game.over)
   }
 }
 
