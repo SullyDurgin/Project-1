@@ -82,6 +82,11 @@ const winnerOfGame = function () {
     winner.innerText = 'Player ' + winningPlayer + ' is the winner!!'
     console.log(store.game.over)
   }
+  const gameDraw = !store.game.cells.includes('')
+  if (gameDraw) {
+    winner.innerHTML = 'DRAW!'
+    store.game.over = true
+  }
 }
 
 module.exports = {
