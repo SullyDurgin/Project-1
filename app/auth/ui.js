@@ -22,7 +22,9 @@ const onSignInSuccess = (response) => {
   $('#sign-in').trigger('reset')
   $('#new-game').show()
   $('.box').show()
-  $('#sign-out').on()
+  $('#sign-out').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
   store.user = response.user
 }
 const onSignInFailure = () => {
@@ -33,6 +35,10 @@ const onSignInFailure = () => {
 const onSignOutSuccess = (error) => {
   $('#message').text('Signed out successfully')
   $('form').trigger('reset')
+  $('#sign-in').show()
+  $('#sign-up').show()
+  $('#new-game').hide()
+  $('.box').hide()
 }
 
 const onSignOutFailure = (error) => {
@@ -61,7 +67,6 @@ const onUpdateGameSuccess = (response) => {
 const onUpdateGameFailure = () => {}
 
 const onWinnerOfGame = () => {
-  
 
 }
 
