@@ -1,0 +1,109 @@
+@import '~bootstrap/scss/bootstrap';
+@import url(https://fonts.googleapis.com/css?family=Walter+Turncoat);
+
+
+
+h1{
+ font-family: 'Walter Turncoat', Arial, sans-serif;
+  text-align: center;
+  font-size: 100px;
+}
+
+h2{
+ font-family: 'Walter Turncoat', Arial, sans-serif;
+  text-align: center;
+  font-size: 40px;
+}
+
+
+body {
+  background-image: url("https://i.ibb.co/BN2bszY/52eb4c43ad266b111552d01bd87c66c9.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.wrapper {
+  font-family: 'Walter Turncoat', Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  display: grid;
+  position: relative;
+  text-align: center;
+  font-size: 80px;
+  color: red;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 15px;
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-columns: minmax(100px, auto);
+  //background-color: aquamarine;
+}
+
+#zero {
+  border-left: 8px solid black;
+  border-right: 8px solid black;
+  border-top: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+#one {
+  border-right: 8px solid black;
+  border-top: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+#two {
+  border-right: 8px solid black;
+  border-top: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#three {
+  border-left: 8px solid black;
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#four {
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#five{
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 3;
+  grid-row: 2;
+}
+
+#six {
+  border-left: 8px solid black;
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#seven {
+  border-bottom: 8px solid black;
+  grid-column: 2;
+  grid-row: 3;
+}
+
+#eight{
+  border-left: 8px solid black;
+  border-right: 8px solid black;
+  border-bottom: 8px solid black;
+  grid-column: 3;
+  grid-row: 3;
+}
