@@ -2,9 +2,10 @@
 
 const store = require('./../store')
 
-const markBox = function (event) {
-  $('.box').on('click', events.clickedBox)
-}
+// const markBox = function (event) {
+//   $('.box').on('click', event.clickedBox)
+//   $('.box').addClass('no-click', event.clickedBox)
+// }
 
 const onSignUpSuccess = (response) => {
   $('#message').text(`Thank you for signing up ${response.user.email}`)
@@ -57,7 +58,10 @@ const onUpdateGameSuccess = (response) => {
   console.log(store.game)
 }
 
-const onUpdateGameFailure = () => {
+const onUpdateGameFailure = () => {}
+
+const onWinnerOfGame = () => {
+  
 
 }
 
@@ -71,6 +75,6 @@ module.exports = {
   onNewGameFailure,
   onNewGameSuccess,
   onUpdateGameFailure,
-  onUpdateGameSuccess
-
+  onUpdateGameSuccess,
+  onWinnerOfGame
 }

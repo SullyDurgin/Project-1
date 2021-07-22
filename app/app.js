@@ -15,4 +15,6 @@ $(() => { // run these things immediately (jquery)
   $('#new-game').on('submit', authEvents.onNewGame)
   $('.box').hide()
   $('.box').on('click', authEvents.updateGame) // when page loads find all .box and add click handler
+  // $('.box').addClass('no-click')
+  // $('body').on('click', ['no-click'], authEvents.updateGame)
 })
