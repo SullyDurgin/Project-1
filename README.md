@@ -4,7 +4,7 @@ This application is a Tic-Tac-Toe, SPA (single-page application) that is written
 
 ## Link 
 
-[Deployed Tic-Tac-Toe (Project-1)]( https://sullydurgin.github.io/Project-1/)
+[Deployed Tic-Tac-Toe]( https://tttweekend-sullydurgin.netlify.app/)
 
 ## Planning
 
